@@ -1,6 +1,7 @@
 import Models.*;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -28,38 +29,43 @@ public class Main {
             System.out.println("*********************************");
             option = keyboardOption.nextInt();
 
-            switch (option)
-            {
-                case 1:
-                    System.out.println("Ingreses el valor que desea convertir:");
-                    mount = keyboardOption.nextDouble();
-                    apiConnectorJsonProcessor.boot("USD/ARS/",mount);
-                    break;
-                case 2:
-                    System.out.println("Ingreses el valor que desea convertir:");
-                    mount = keyboardOption.nextDouble();
-                    apiConnectorJsonProcessor.boot("ARS/USD/",mount);
-                    break;
-                case 3:
-                    System.out.println("Ingreses el valor que desea convertir:");
-                    mount = keyboardOption.nextDouble();
-                    apiConnectorJsonProcessor.boot("USD/BRL/",mount);
-                    break;
-                case 4:
-                    System.out.println("Ingreses el valor que desea convertir:");
-                    mount = keyboardOption.nextDouble();
-                    apiConnectorJsonProcessor.boot("BRL/USD/",mount);
-                    break;
-                case 5:
-                    System.out.println("Ingreses el valor que desea convertir:");
-                    mount = keyboardOption.nextDouble();
-                    apiConnectorJsonProcessor.boot("USD/COP/",mount);
-                    break;
-                case 6:
-                    System.out.println("Ingreses el valor que desea convertir:");
-                    mount = keyboardOption.nextDouble();
-                    apiConnectorJsonProcessor.boot("COP/USD/",mount);
-                    break;
+            try {
+                switch (option)
+                {
+                    case 1:
+                        System.out.println("Ingreses el valor que desea convertir:");
+                        mount = keyboardOption.nextDouble();
+                        apiConnectorJsonProcessor.boot("USD/ARS/",mount);
+                        break;
+                    case 2:
+                        System.out.println("Ingreses el valor que desea convertir:");
+                        mount = keyboardOption.nextDouble();
+                        apiConnectorJsonProcessor.boot("ARS/USD/",mount);
+                        break;
+                    case 3:
+                        System.out.println("Ingreses el valor que desea convertir:");
+                        mount = keyboardOption.nextDouble();
+                        apiConnectorJsonProcessor.boot("USD/BRL/",mount);
+                        break;
+                    case 4:
+                        System.out.println("Ingreses el valor que desea convertir:");
+                        mount = keyboardOption.nextDouble();
+                        apiConnectorJsonProcessor.boot("BRL/USD/",mount);
+                        break;
+                    case 5:
+                        System.out.println("Ingreses el valor que desea convertir:");
+                        mount = keyboardOption.nextDouble();
+                        apiConnectorJsonProcessor.boot("USD/COP/",mount);
+                        break;
+                    case 6:
+                        System.out.println("Ingreses el valor que desea convertir:");
+                        mount = keyboardOption.nextDouble();
+                        apiConnectorJsonProcessor.boot("COP/USD/",mount);
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Digite un numero valido");
+                return;
             }
 
             if (option == 7)
